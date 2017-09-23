@@ -3,7 +3,7 @@ window.Seed = (function () {
     return Math.floor((Math.random() * 50) + 15);
   }
 
-  const products = [
+  const students = [
     {
       id: 1,
       title: 'Yellow Pail',
@@ -11,7 +11,7 @@ window.Seed = (function () {
       url: '#',
       votes: generateVoteCount(),
       submitterAvatarUrl: 'images/avatars/daniel.jpg',
-      productImageUrl: 'images/products/image-aqua.png',
+      studentImageUrl: 'images/students/image-aqua.png',
     },
     {
       id: 2,
@@ -20,7 +20,7 @@ window.Seed = (function () {
       url: '#',
       votes: generateVoteCount(),
       submitterAvatarUrl: 'images/avatars/kristy.png',
-      productImageUrl: 'images/products/image-rose.png',
+      studentImageUrl: 'images/students/image-rose.png',
     },
     {
       id: 3,
@@ -29,7 +29,7 @@ window.Seed = (function () {
       url: '#',
       votes: generateVoteCount(),
       submitterAvatarUrl: 'images/avatars/veronika.jpg',
-      productImageUrl: 'images/products/image-steel.png',
+      studentImageUrl: 'images/students/image-steel.png',
     },
     {
       id: 4,
@@ -38,9 +38,9 @@ window.Seed = (function () {
       url: '#',
       votes: generateVoteCount(),
       submitterAvatarUrl: 'images/avatars/molly.png',
-      productImageUrl: 'images/products/image-yellow.png',
+      studentImageUrl: 'images/students/image-yellow.png',
     },
   ];
 
-  return { products: products };
+  return { students: students };
 }());

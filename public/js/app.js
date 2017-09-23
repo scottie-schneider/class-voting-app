@@ -1,58 +1,58 @@
-class ProductList extends React.Component {
+class StudentsList extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      products: [],
+      students: [],
     };
-    this.handleProductUpVote = this.handleProductUpVote.bind(this);
+    this.handleStudentsUpVote = this.handleStudentsUpVote.bind(this);
   }
 
   componentDidMount() {
-    this.setState({ products: Seed.products });
+    this.setState({ students: Seed.students });
   }
 
-  handleProductUpVote(productId) {
-    const nextProducts = this.state.products.map((product) => {
-      if (product.id === productId) {
-        return Object.assign({}, product, {
-          votes: product.votes + 1,
+  handleStudentsUpVote(studentsId) {
+    const nextStudents = this.state.students.map((students) => {
+      if (students.id === studentsId) {
+        return Object.assign({}, students, {
+          votes: students.votes + 1,
         });
       } else {
-        return product;
+        return students;
       }
     });
     this.setState({
-      products: nextProducts,
+      students: nextStudents,
     });
   }
 
   render() {
-    const products = this.state.products.sort((a,b) => (
+    const students = this.state.students.sort((a,b) => (
       b.votes - a.votes
     ))
-    const productComponents = products.map((product) => (
-      <Product
-        key={'product-' + product.id}
-        id={product.id}
-        title={product.title}
-        description={product.description}
-        url={product.url}
-        votes={product.votes}
-        submitterAvatarUrl={product.submitterAvatarUrl}
-        productImageUrl={product.productImageUrl}
-        onVote={this.handleProductUpVote}
+    const studentsComponents = students.map((student) => (
+      <Students
+        key={'students-' + student.id}
+        id={student.id}
+        title={student.title}
+        description={student.description}
+        url={student.url}
+        votes={student.votes}
+        submitterAvatarUrl={student.submitterAvatarUrl}
+        studentImageUrl={student.studentImageUrl}
+        onVote={this.handleStudentsUpVote}
       />
     ));
     return (
       <div className='ui unstackable items'>
-        {productComponents}
+        {studentsComponents}
       </div>
     );
   }
 }
 
-class Product extends React.Component {
+class Students extends React.Component {
   constructor(props){
     super(props);
     this.handleUpVote = this.handleUpVote.bind(this);
@@ -65,7 +65,7 @@ class Product extends React.Component {
     return (
       <div className='item'>
         <div className='image'>
-          <img src={this.props.productImageUrl} />
+          <img src={this.props.studentImageUrl} />
         </div>
         <div className='middle aligned content'>
           <div className='header'>
@@ -96,6 +96,6 @@ class Product extends React.Component {
 }
 
 ReactDOM.render(
-  <ProductList />,
+  <StudentsList />,
   document.getElementById('content')
 );
